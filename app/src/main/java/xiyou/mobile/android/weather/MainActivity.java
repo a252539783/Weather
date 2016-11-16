@@ -1,5 +1,6 @@
 package xiyou.mobile.android.weather;
 
+import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         rq= Volley.newRequestQueue(this);
-
+        Dialog d=new Dialog(this);
+        d.setContentView(R.layout.select_location);
+        d.getWindow().getAttributes().x=-640;
+        d.show();
         getLocation2();
     }
 
