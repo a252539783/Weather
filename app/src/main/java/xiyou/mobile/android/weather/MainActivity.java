@@ -49,11 +49,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         rq= Volley.newRequestQueue(this);
         sd=new SelectDialog(this);
+
+        findViewById(R.id.image).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        sd.show();
     }
 
     @Override
