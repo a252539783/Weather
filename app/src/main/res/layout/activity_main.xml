@@ -9,6 +9,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -16,21 +22,19 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:orientation="vertical"
-
+            android:layout_weight="1"
             android:layout_height="match_parent">
 
-            <TextView
+            <xiyou.mobile.android.weather.AutoTextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="0"
                 android:layout_weight="1"
                 android:textAlignment="gravity"
-                android:autoText="false"
                 android:gravity="center" />
 
-            <TextView
+            <xiyou.mobile.android.weather.AutoTextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="0/0"
@@ -40,10 +44,10 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_gravity="right"
-            android:layout_weight="1"
             android:id="@+id/image"
+            android:layout_weight="1"
             android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher"
             android:layout_height="match_parent" />
@@ -53,7 +57,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:alpha="0.5"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:layout_height="0dp">
 
 

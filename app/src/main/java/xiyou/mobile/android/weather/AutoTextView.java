@@ -16,6 +16,9 @@ public class AutoTextView extends TextView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        setTextSize(h*160/getResources().getDisplayMetrics().density);
+        if (h>w/3)
+            setTextSize(w/3*160/getResources().getDisplayMetrics().densityDpi);
+        else
+        setTextSize(h*160/getResources().getDisplayMetrics().densityDpi);
     }
 }

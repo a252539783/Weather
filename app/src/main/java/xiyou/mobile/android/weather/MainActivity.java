@@ -1,6 +1,7 @@
 package xiyou.mobile.android.weather;
 
 import android.app.Dialog;
+import android.media.Image;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
@@ -14,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -40,6 +43,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private AnimationControl ac;
     private RequestQueue rq;
     private SelectDialog sd;
 
@@ -49,12 +53,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         rq= Volley.newRequestQueue(this);
         sd=new SelectDialog(this);
+        initAnimation();
+    }
 
-        findViewById(R.id.image).setOnClickListener(this);
+    public void initAnimation()
+    {
+
     }
 
     @Override
     public void onClick(View v) {
+        ac.go(1);
     }
 
     @Override
