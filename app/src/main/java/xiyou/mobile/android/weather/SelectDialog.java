@@ -92,7 +92,6 @@ public class SelectDialog{
                     JSONObject c=null;
                     try {
                         c=jsonArray.getJSONObject(i);
-                        Log.e("ee",c.getString("provinceZh"));
                         if (location1.containsKey(c.getString("provinceZh")))
                         {
                             location1.get(c.getString("provinceZh")).add(new String[]{c.getString("cityZh"),c.getString("id")});
@@ -121,7 +120,6 @@ public class SelectDialog{
 
         @Override
         public int getCount() {
-            Log.e("count",""+sheng.size());
             return sheng.size();
         }
 
@@ -142,7 +140,6 @@ public class SelectDialog{
                 convertView.setId(position);
                 TextView t=((TextView)convertView.findViewById(R.id.loc_name));
                 t.setText(sheng.get(position));
-                Log.e("aaa",""+position);
                 //t.setHeight();
                 convertView.setOnClickListener(this);
             }
@@ -159,8 +156,6 @@ public class SelectDialog{
             list_shi.setAdapter(allShi.get(v.getId()));
             window_shi.getAttributes().y=(int)v.getY()+barHeight;
             select_shi.show();
-
-            Log.e("position",v.getX()+":"+v.getY());
         }
     }
 

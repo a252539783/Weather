@@ -58,12 +58,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void initAnimation()
     {
-
+        ac=new AnimationControl();
+        View test= findViewById(R.id.margin_top);
+        ac.addView(test);
+        ac.getState(test,1).setH(1000);
+        test=findViewById(R.id.contain_simple);
+        test.setOnClickListener(this);/*
+        test=findViewById(R.id.margin_bottom);
+        ac.addView(test);
+        ac.getState(test,1).setH(200);
+        test.setMinimumHeight(1000);*/
     }
 
     @Override
     public void onClick(View v) {
+        if (ac.current()==0)
         ac.go(1);
+        else
+            ac.go(0);
+
+        Log.e("ac",""+ac.current());
     }
 
     @Override
