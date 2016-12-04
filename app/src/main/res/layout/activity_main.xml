@@ -24,7 +24,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:orientation="vertical"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:layout_height="match_parent">
 
             <xiyou.mobile.android.weather.AutoTextView
@@ -32,14 +32,14 @@
                 android:layout_height="0dp"
                 android:text="0"
                 android:layout_weight="1"
-                android:gravity="right|bottom" />
+                android:gravity="end|bottom" />
 
             <xiyou.mobile.android.weather.AutoTextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="0/0"
                 android:layout_weight="1"
-                android:gravity="right|top" />
+                android:gravity="end|top" />
 
         </LinearLayout>
 
@@ -47,22 +47,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="℃"
-            android:layout_weight="1"
-            android:gravity="center" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
             android:layout_weight="2"
-            android:layout_height="match_parent">
-
+            android:gravity="center" />
 
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
-                android:adjustViewBounds="true"
+                android:adjustViewBounds="false"
                 android:layout_weight="3"
                 android:id="@+id/test"
                 android:scaleType="fitCenter" />
@@ -70,11 +63,10 @@
             <xiyou.mobile.android.weather.AutoTextView
                 android:layout_width="0dp"
                 android:text="请"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="bottom"
                 android:layout_height="match_parent" />
 
-        </LinearLayout>
 
     </LinearLayout>
 

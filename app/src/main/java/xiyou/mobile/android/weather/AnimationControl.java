@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class AnimationControl implements Runnable{
 
     private ArrayList<View> controler;
     private boolean moving=false,stop=false;
-    private int duration=500,currentFrame=0;
+    private int duration=300,currentFrame=0;
     private MH mh;
 
     public AnimationControl()
@@ -98,12 +99,12 @@ public class AnimationControl implements Runnable{
                     break;
                 }
             }
-            a.dx=(s.x-a.current.x)/500;
-            a.dy=(s.y-a.current.y)/500;
-            a.dw=(s.w-a.current.w)/500;
-            a.dh=(s.h-a.current.h)/500;
-            a.dsx=(s.sx-a.current.sx)/500;
-            a.dsy=(s.sy-a.current.sy)/500;
+            a.dx=(s.x-a.current.x)/duration;
+            a.dy=(s.y-a.current.y)/duration;
+            a.dw=(s.w-a.current.w)/duration;
+            a.dh=(s.h-a.current.h)/duration;
+            a.dsx=(s.sx-a.current.sx)/duration;
+            a.dsy=(s.sy-a.current.sy)/duration;
             a.current=s;
         }
         stop=false;
@@ -147,17 +148,21 @@ public class AnimationControl implements Runnable{
                 a.v.setY(a.v.getY()+a.dy);
         //        if (s.w!=-1)
                 a.cw=a.cw+a.dw;
-                a.v.setMinimumWidth((int)(a.cw));
-         //       if (s.h!=-1)
                 a.ch=a.ch+a.dh;
-                a.v.setMinimumHeight((int)(a.ch));
+                ViewGroup.LayoutParams lp=a.v.getLayoutParams();
+                lp.height=(int)a.ch;
+                lp.width=(int)a.cw;
+               // a.v.setMinimumWidth((int)(a.cw));
+         //       if (s.h!=-1)
+                a.v.setLayoutParams(lp);
+                //a.v.setMinimumHeight((int)(a.ch));
         //        if (s.sx!=-1)
                     a.v.setScaleX(a.v.getScaleX()+a.dsx);
          //       if (s.sy!=-1)
                     a.v.setScaleY(a.v.getScaleY()+a.dsy);
             }
             Anims a=(Anims)controler.get(0).getTag();
-            if (frame==500) {
+            if (frame==duration) {
                 stop = true;
                 frame=0;
             }
@@ -181,8 +186,8 @@ public class AnimationControl implements Runnable{
             states=new ArrayList<>();
             states.add(new State(v));
             current=states.get(0);
-            cw=v.getWidth();
-            ch=v.getHeight();
+            cw=v.getLayoutParams().width;
+            ch=v.getLayoutParams().height;
         }
     }
 
@@ -204,8 +209,8 @@ public class AnimationControl implements Runnable{
             y=v.getY();
             sx=v.getScaleX();
             sy=v.getScaleY();
-            w=v.getWidth();
-            h=v.getHeight();
+            w=v.getLayoutParams().width;
+            h=v.getLayoutParams().height;
             alpha=v.getAlpha();
         }
 

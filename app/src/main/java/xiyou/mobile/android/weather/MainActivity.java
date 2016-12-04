@@ -58,16 +58,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void initAnimation()
     {
+        int barHeight=(int)obtainStyledAttributes(new int[] { android.R.attr.actionBarSize }).getDimension(0,0);
+        int h=getWindowManager().getDefaultDisplay().getHeight();
+        View root=findViewById(R.id.activity_main);
+        ViewGroup.LayoutParams lp;
         ac=new AnimationControl();
         View test= findViewById(R.id.margin_top);
+        lp=test.getLayoutParams();
+        lp.height=(h-barHeight)/4;
+        test.setLayoutParams(lp);
         ac.addView(test);
-        ac.getState(test,1).setH(1000);
+        ac.getState(test,1).setH(0);
         test=findViewById(R.id.contain_simple);
-        test.setOnClickListener(this);/*
+        test.setOnClickListener(this);
         test=findViewById(R.id.margin_bottom);
+        lp=test.getLayoutParams();
+        lp.height=(h-barHeight)/2;
+        test.setLayoutParams(lp);
         ac.addView(test);
-        ac.getState(test,1).setH(200);
-        test.setMinimumHeight(1000);*/
+        ac.getState(test,1).setH(lp.height/2*3);
     }
 
     @Override
