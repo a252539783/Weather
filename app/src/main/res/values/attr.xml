@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="xy3g">
+        <attr name="num" format="integer"></attr>
+        <attr name="relyH" format="boolean"></attr>
+    </declare-styleable>
+</resources>
